@@ -1,0 +1,19 @@
+# Gradle / Android
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+.kotlin/
+captures/
+*.apk
+*.aab
+
+# Signing material: never commit keys, even the AOSP test keys we fetch
+tools/keys/*.pk8
+tools/keys/*.pem
+tools/keys/*.p12
+tools/keys/*.jks
+
+# Emulator state
+tools/emulator/.avd/
