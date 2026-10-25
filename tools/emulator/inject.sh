@@ -9,6 +9,7 @@
 # releases; this is the android-35 form. If it fails, use the Extended Controls
 # > Car Data panel in the emulator window instead.
 set -euo pipefail
+# shellcheck source=tools/emulator/env.sh
 source "$(dirname "$0")/env.sh"
 
 PERF_VEHICLE_SPEED=291504647   # 0x11600207

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Build the launcher, install it on the running emulator, and make it the home app.
 set -euo pipefail
+# shellcheck source=tools/emulator/env.sh
 source "$(dirname "$0")/env.sh"
 root="$(cd "$(dirname "$0")/../.." && pwd)"
 

@@ -2,6 +2,7 @@
 # One-shot setup: Android SDK pieces, the AAOS emulator image, and an AVD.
 # Idempotent. Needs: curl, python3, a JDK 17+, and ~6 GB of disk.
 set -euo pipefail
+# shellcheck source=tools/emulator/env.sh
 source "$(dirname "$0")/env.sh"
 
 echo "SDK root: $ANDROID_HOME"
