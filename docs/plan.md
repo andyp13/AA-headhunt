@@ -33,7 +33,7 @@ Each ends with something that boots.
 | # | Name | Exit criterion |
 |---|------|----------------|
 | M0 | Emulator | Launcher builds in CI, installs on the AAOS emulator with platform signing, and shows live speed from injected VHAL data. |
-| M1 | Launcher and system UI | Home screen with map placeholder, media card and app grid. Car status bar. CarSystemUI forked with status bar and notifications restyled. |
+| M1 | Launcher and system UI | Home screen with map placeholder, media card and app grid. Car status strip. CarSystemUI restyled with resource overlays (ADR 0004), no fork. |
 | M2 | Bench rig | Chosen board runs AAOS on a bench with the display, bench PSU, bridge board and an OBD simulator. First real property from real hardware. |
 | M3 | Power and boot | Key-on/key-off handled by bridge firmware. Android suspends and resumes. Boot and resume times measured. Board choice confirmed by data. |
 | M4 | Audio and phone | Audio HAL config for a single zone to an aftermarket amp. Bluetooth calls and media. GPS fix. |
@@ -51,6 +51,25 @@ Each ends with something that boots.
 - [x] CI building, testing and linting on every push
 - [ ] Verified on a machine with the emulator: launcher installs, speed injection shows on screen
 - [ ] ADR 0003 compute board: pick the development board and order it
+
+## M1 breakdown
+
+M1a, launcher (this is in progress):
+
+- [x] design-system components: CarButton, Panel, Readout
+- [x] Nav rail: Home, Apps, Media, Phone, Settings
+- [x] Home: map placeholder, speed card, media card with transport controls, car status strip
+- [x] App grid from PackageManager
+- [x] Media card mirrors the active media session (needs platform signing)
+- [x] App icon
+- [x] ADR 0004 system UI strategy
+- [ ] Verified on the emulator: rail navigation, app grid launches an app, media card follows a playing session
+
+M1b, system UI overlays:
+
+- [ ] Dump CarSystemUI resources from the android-35 image
+- [ ] First overlay: colours and hide the HVAC bar
+- [ ] Overlay install script for the emulator
 
 ## Risks
 
