@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!--
+      Lint wants the adaptive icon in mipmap-anydpi because minSdk is 33, but
+      AGP's resource merger drops the file from the unversioned folder. The
+      -v26 folder is the one that builds. See the M1 PR for the trail.
+    -->
+    <issue id="ObsoleteSdkInt">
+        <ignore path="src/main/res/mipmap-anydpi-v26" />
+    </issue>
+</lint>

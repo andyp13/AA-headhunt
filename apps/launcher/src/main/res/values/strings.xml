@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Headhunt</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_apps">Apps</string>
+    <string name="nav_media">Media</string>
+    <string name="nav_phone">Phone</string>
+    <string name="nav_settings">Settings</string>
+
+    <string name="panel_navigation">Navigation</string>
+    <string name="panel_media">Media</string>
+    <string name="map_placeholder">Map goes here. M4 picks the navigation app.</string>
+
+    <string name="media_empty">Nothing playing. Connect a phone or open a media app.</string>
+    <string name="media_unknown_title">Unknown track</string>
+    <string name="media_play">Play</string>
+    <string name="media_pause">Pause</string>
+    <string name="media_next">Next</string>
+    <string name="media_previous">Previous</string>
+
+    <string name="unit_mph">mph</string>
+    <string name="readout_gear">Gear</string>
+    <string name="readout_rpm">RPM</string>
+    <string name="readout_coolant">Coolant</string>
+    <string name="readout_fuel">Fuel</string>
+    <string name="readout_mode">Mode</string>
+    <string name="mode_night">Night</string>
+    <string name="mode_day">Day</string>
+
+    <string name="no_app_for_action">No app installed for that yet</string>
 </resources>

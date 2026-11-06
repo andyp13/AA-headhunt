@@ -46,6 +46,8 @@ same on every push.
 ## Rules we build by
 
 - **Overlay before fork.** If a resource overlay or Car Service config can do
+  it, do that. Fork a system app only when behaviour has to change. ADR 0004
+  applies this to CarSystemUI.
   it, do that. Fork a system app only when behaviour has to change.
 - **One entry point for car data.** Apps depend on `VehicleSource` from
   car-kit, never on `CarPropertyManager`.
