@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+      Restyles CarSystemUI (ADR 0004). Resource names must match the pinned
+      android-35 image; see platform/overlays/README.md for how they were taken.
+      isStatic=false so the emulator can enable and disable it at runtime.
+    -->
+    <application android:hasCode="false" android:label="Headhunt SystemUI overlay" />
+    <overlay
+        android:targetPackage="com.android.systemui"
+        android:priority="10"
+        android:isStatic="false" />
+</manifest>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Headhunt theme for CarSystemUI (com.android.systemui, android-35-ext15 image).
+
+  Overlays by name the same car_* semantic tokens Google's own
+  googlecarui.theme.orange overlay touches, with the launcher's palette from
+  libs/design-system/Tokens.kt. Defaults and provenance: RESOURCES.md.
+-->
+<resources>
+    <!-- Backgrounds and surfaces (design-system NightBackground / NightSurface) -->
+    <color name="car_background">#FF0B0D10</color>
+    <color name="car_surface">#FF161A1F</color>
+    <color name="car_surface_variant">#FF20252C</color>
+    <color name="car_surface_1">#FF1B2026</color>
+    <color name="car_surface_2">#FF20252C</color>
+    <color name="car_surface_3">#FF252B32</color>
+    <color name="car_surface_4">#FF2A3038</color>
+    <color name="car_surface_5">#FF2F363F</color>
+
+    <!-- Text and icons on those surfaces (NightOnSurface / NightMuted) -->
+    <color name="car_on_background">#FFE9EDF1</color>
+    <color name="car_on_surface">#FFE9EDF1</color>
+    <color name="car_on_surface_variant">#FF8A94A0</color>
+    <color name="car_outline">#FF5B6670</color>
+    <color name="car_outline_variant">#FF353A3D</color>
+
+    <!-- Accent (design-system Accent). Selected nav pills, focus ring, highlights. -->
+    <color name="car_primary">#FFFF6A00</color>
+    <color name="car_on_primary">#FF1A0A00</color>
+    <color name="car_primary_container">#FF4A2000</color>
+    <color name="car_on_primary_container">#FFFFD8C2</color>
+
+    <!-- Errors (design-system Danger) -->
+    <color name="car_error">#FFFF6B61</color>
+    <color name="car_error_container">#FF7A1A14</color>
+    <color name="car_on_error_container">#FFFFDAD4</color>
+
+    <!-- The system bars themselves -->
+    <color name="system_bar_background_opaque">#FF0B0D10</color>
+    <color name="system_bar_background_pill_color">#FF252B32</color>
+    <color name="system_bar_text_color">#FFE9EDF1</color>
+    <color name="system_bar_clock_text_color">#FFE9EDF1</color>
+</resources>

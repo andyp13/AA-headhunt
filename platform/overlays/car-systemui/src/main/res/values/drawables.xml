@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Both bars are plain drawables in CarSystemUI, which is how Google's
+  CarSystemUINavBarTranslucent / StatusBarTranslucent overlays recolour them.
+-->
+<resources>
+    <drawable name="nav_bar_background">#FF0B0D10</drawable>
+    <drawable name="status_bar_background">#FF0B0D10</drawable>
+</resources>

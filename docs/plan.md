@@ -67,9 +67,11 @@ M1a, launcher (this is in progress):
 
 M1b, system UI overlays:
 
-- [ ] Dump CarSystemUI resources from the android-35 image
-- [ ] First overlay: colours and hide the HVAC bar
-- [ ] Overlay install script for the emulator
+- [x] Dump CarSystemUI resources from the android-35 image (`tools/emulator/extract-sysui-from-image.sh`, no emulator needed)
+- [x] First overlay: Headhunt palette on the `car_*` tokens, bar backgrounds, HVAC temperature controls collapsed
+- [x] Overlay install script for the emulator
+- [ ] Verified on the emulator: overlay enables, bars take the palette, temperature controls gone
+- [ ] Layout override: drop the HVAC button, point Home and Apps at our launcher (see `platform/overlays/car-systemui/RESOURCES.md`)
 
 ## Risks
 
