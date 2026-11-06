@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Required to bind to Car Service at all. -->
+    <uses-feature android:name="android.hardware.type.automotive" android:required="true" />
+    <!-- Vehicle property permissions are declared by :libs:car-kit and merged in. -->
+
+    <application
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+        android:supportsRtl="true">
+
+        <!--
+          Home activity. On AAOS the stock CarLauncher holds the HOME intent;
+          tools/emulator/install-launcher.sh points the role at us for the
+          emulator. In the product image (M5) CarLauncher is simply not built.
+        -->
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true"
+            android:excludeFromRecents="true"
+            android:resizeableActivity="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- Required by Car Service for any activity shown while driving. -->
+            <meta-data android:name="distractionOptimized" android:value="true" />
+        </activity>
+    </application>
+</manifest>
