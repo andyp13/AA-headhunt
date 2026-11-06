@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!-- An RRO has no activities, icon or launcher entry by design. -->
+    <issue id="MissingApplicationIcon" severity="ignore" />
+    <issue id="UnusedResources" severity="ignore" />
+</lint>

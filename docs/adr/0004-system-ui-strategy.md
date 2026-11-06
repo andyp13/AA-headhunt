@@ -35,8 +35,12 @@ system UI specifically.
   adb remount`, then enabled with `cmd overlay enable`. In the product image
   (M5) they are built in.
 - Resource names are taken from the pinned image, not from memory:
-  `tools/emulator/dump-sysui-res.sh` pulls `CarSystemUI.apk` from a running
-  emulator and lists its public resources with `aapt2`.
+  `tools/emulator/extract-sysui-from-image.sh` reads `CarSystemUI.apk` straight
+  out of the SDK's system image (no emulator needed) and
+  `tools/emulator/dump-sysui-res.sh` does the same from a running one. The
+  dump each overlay was written against is committed beside it as `RESOURCES.md`.
+- CarSystemUI in the android-35 image declares no `<overlayable>`, so every
+  resource is fair game for a product or platform-signed overlay.
 
 ## Consequences
 

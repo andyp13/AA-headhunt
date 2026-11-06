@@ -16,7 +16,7 @@ adb pull "$path" "$out/CarSystemUI.apk" >/dev/null
 
 aapt2="$ANDROID_HOME/build-tools/35.0.0/aapt2"
 "$aapt2" dump resources "$out/CarSystemUI.apk" > "$out/resources.txt"
-"$aapt2" dump badging "$out/CarSystemUI.apk" | head -3
+"$aapt2" dump badging "$out/CarSystemUI.apk" | sed -n 1,3p
 
 echo "Resource table: $out/resources.txt"
 echo "Candidate overlay targets (bool/colour/dimen/layout names):"

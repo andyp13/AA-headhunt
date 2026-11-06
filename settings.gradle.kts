@@ -19,3 +19,4 @@ rootProject.name = "headhunt"
 include(":apps:launcher")
 include(":libs:design-system")
 include(":libs:car-kit")
+include(":platform:overlays:car-systemui")

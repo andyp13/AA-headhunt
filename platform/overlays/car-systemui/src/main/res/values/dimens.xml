@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The Eclipse keeps its manual HVAC knobs (ADR 0002), so the driver and
+  passenger temperature controls in the bottom bar are noise. They are two
+  TemperatureControlView instances whose children are sized entirely by these
+  dimens, so zeroing them collapses both to nothing without touching layout.
+
+  The HVAC *button* (id/hvac) and the panel it opens still exist. Removing
+  them needs a layout override; see RESOURCES.md, "Next step".
+-->
+<resources>
+    <dimen name="hvac_container_padding">0dp</dimen>
+    <dimen name="hvac_temperature_button_size">0dp</dimen>
+    <dimen name="hvac_temperature_button_padding">0dp</dimen>
+    <dimen name="hvac_temperature_text_padding">0dp</dimen>
+    <dimen name="hvac_temperature_text_size">0sp</dimen>
+</resources>
