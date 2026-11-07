@@ -3,8 +3,15 @@
 #
 # Pinned per docs/adr/0001-aosp-baseline.md. Bump both lines together.
 export HH_API="android-35-ext15"
-export HH_IMAGE="system-images;${HH_API};android-automotive;x86_64"
-export HH_CMDLINE_TOOLS_BUILD="16111833"
+# Image architecture follows the host: Apple Silicon and other arm64 machines
+# cannot run the x86_64 image. Override with HH_ARCH=x86_64|arm64-v8a.
+case "${HH_ARCH:-$(uname -m)}" in
+  arm64|aarch64|arm64-v8a) export HH_ARCH="arm64-v8a" ;;
+  *)                       export HH_ARCH="x86_64" ;;
+esac
+export HH_IMAGE="system-images;${HH_API};android-automotive;${HH_ARCH}"
+# Newest build published for both macOS and Linux; 16111833 is Linux-only.
+export HH_CMDLINE_TOOLS_BUILD="15641748"
 export HH_AVD_NAME="headhunt_car"
 
 export ANDROID_HOME="${ANDROID_HOME:-$HOME/android-sdk}"

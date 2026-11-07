@@ -31,8 +31,11 @@ docs/                 Plan and architecture decision records.
 
 ## Quick start (M0)
 
-Requirements: JDK 17 or newer, ~6 GB disk, a machine that can run the Android
-emulator with hardware acceleration.
+Requirements: JDK 17 or newer, ~6 GB disk, bash, curl, python3, openssl, and a
+machine that can run the Android emulator with hardware acceleration (Linux
+with KVM, macOS Intel or Apple Silicon; on Windows use WSL2 or Android Studio's
+Device Manager for the AVD and run the Gradle and adb steps from PowerShell).
+The image architecture follows the host; override with `HH_ARCH=x86_64`.
 
 ```sh
 tools/emulator/bootstrap.sh          # SDK, AAOS image, AVD (once)
