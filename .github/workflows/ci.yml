@@ -30,7 +30,7 @@ jobs:
       - name: Shell script lint
         run: |
           sudo apt-get install -y shellcheck >/dev/null
-          shellcheck -x tools/emulator/*.sh tools/keys/*.sh
+          shellcheck -x tools/emulator/*.sh tools/keys/*.sh tools/rpi5/*.sh
 
       - uses: actions/upload-artifact@v4
         if: always()
