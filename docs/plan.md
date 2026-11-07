@@ -49,7 +49,7 @@ Each ends with something that boots.
 - [x] Emulator bootstrap, run, install and inject scripts
 - [x] Platform-key signing path
 - [x] CI building, testing and linting on every push
-- [ ] Verified on a machine with the emulator: launcher installs, speed injection shows on screen
+- [x] Verified on a machine with the emulator: launcher installs (macOS, 2026-11-07); speed injection and overlay results to be confirmed
 - [x] ADR 0003 compute board: Raspberry Pi 5 (decided 2026-11-07)
 
 ## M1 breakdown
@@ -71,7 +71,8 @@ M1b, system UI overlays:
 - [x] First overlay: Headhunt palette on the `car_*` tokens, bar backgrounds, HVAC temperature controls collapsed
 - [x] Overlay install script for the emulator
 - [ ] Verified on the emulator: overlay enables, bars take the palette, temperature controls gone
-- [ ] Layout override: drop the HVAC button, point Home and Apps at our launcher (see `platform/overlays/car-systemui/RESOURCES.md`)
+- [x] Layout override: drop the HVAC button, point Home and Apps at our launcher (see `platform/overlays/car-systemui/RESOURCES.md`)
+- [ ] Verified on the emulator: bar shows Home, Phone, Apps, Notifications, Assistant with icons; Home highlights our launcher; Apps opens our grid
 
 
 ## M2 breakdown (bench rig on the Pi 5)

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  View ids CarSystemUI's Java looks up in the bottom bar. Declared here with
+  the same names so idmap maps them onto the target's ids and our layout's
+  references are rewritten to them.
+-->
+<resources>
+    <item type="id" name="nav_buttons" />
+    <item type="id" name="home" />
+    <item type="id" name="passenger_home" />
+    <item type="id" name="phone_nav" />
+    <item type="id" name="grid_nav" />
+    <item type="id" name="control_center_nav" />
+    <item type="id" name="notifications" />
+    <item type="id" name="assistant" />
+    <item type="id" name="lock_screen_nav_buttons" />
+    <item type="id" name="occlusion_buttons" />
+</resources>
