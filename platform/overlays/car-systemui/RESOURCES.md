@@ -96,17 +96,42 @@ CarSystemBarView  background=@drawable/nav_bar_background
 `ImageView id/hvac_decrease_button`, `TextView id/hvac_temperature_text`,
 `ImageView id/hvac_increase_button`, all sized by the `hvac_*` dimens above.
 
-## Next step: remove the HVAC button and point Home at our launcher
+## Layout override: how the bottom bar is replaced
 
-Both need a layout override of `car_bottom_system_bar` (drop the two
-`TemperatureControlView`s and `id/hvac`; change `app:componentNames` on
-`id/home` to `dev.headhunt.launcher/.HomeActivity` and `id/grid_nav` to our
-app grid). The open question is how an overlay layout references target
-resources (`@id/home`, `@drawable/car_ic_home`, `@style/SystemBarButton`):
-with name matching the overlay must declare each name itself, and a declared
-drawable replaces the target's. Options are to declare only ids and copy the
-few drawables, or to compile against `CarSystemUI.apk` with `aapt2 -I`, which
-would make CI depend on the 5 GB system image. Decide on the emulator with
-`tools/emulator/install-overlays.sh`; if SystemUI crash-loops, recover with
-`adb shell cmd overlay disable dev.headhunt.overlay.systemui` or by deleting
-`/product/overlay/HeadhuntSystemUI.apk`.
+`res/layout/car_bottom_system_bar.xml` in this overlay replaces the stock
+layout by name. It keeps the stock structure (ids, classes, the hidden
+passenger-home and control-centre buttons, the lock-screen and occlusion
+groups) and removes the two `TemperatureControlView` blocks and the HVAC
+button. Home carries `componentNames="dev.headhunt.launcher/.HomeActivity"`
+so it highlights when our launcher is in front; Apps keeps the stock
+`AppGridButton` and gets our launcher through the two overridden strings
+`config_appGridComponentName` and `system_bar_app_drawer_intent`. The
+launcher reads the `dev.headhunt.launcher.DESTINATION=APPS` extra and opens
+its grid.
+
+What the AOSP RRO documentation (source.android.com/docs/core/runtime/rros)
+settles and what it leaves to the device:
+
+- Since Android 11 "each overlay has its own reserved resource ID space", so
+  an overlay layout referencing the overlay's own resources works. Our
+  layout therefore ships its own copies: `hh_ic_*` icons reconstructed from
+  CarSystemUI's vectors, `hh_nav_button_background`, `HhSystemBarButton`
+  (a copy of `style/SystemBarButton`), `hh_bar_*` strings.
+- Resources that must be the target's (view ids the Java looks up, the
+  `CarSystemBarButton` custom attrs) are declared here with the same names
+  and formats, so idmap maps them onto the target's and references in our
+  layout are rewritten to the target's ids. `dimen/system_bar_button_group_padding`
+  and `dimen/car_keyline_1` are declared with their stock values for the same
+  reason.
+- A target with no `<overlayable>` accepts an overlay that is preinstalled
+  on a system partition or signed with the target's signature. Ours is pushed
+  to `/product/overlay` and platform-signed, so both hold.
+- The docs do not state how an overlay may reference a target resource
+  without a copy, so this overlay does not try to. If the attr mapping does
+  not rewrite as expected on the emulator, the symptom is buttons with no
+  icon or no intent; the fallback is `android:resourcesMap` listing the
+  layout and the attrs explicitly.
+
+Recovery if SystemUI misbehaves after `install-overlays.sh`:
+`adb shell cmd overlay disable dev.headhunt.overlay.systemui`, or delete
+`/product/overlay/HeadhuntSystemUI.apk` and reboot.
