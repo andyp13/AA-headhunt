@@ -10,7 +10,8 @@ case "${HH_ARCH:-$(uname -m)}" in
   *)                       export HH_ARCH="x86_64" ;;
 esac
 export HH_IMAGE="system-images;${HH_API};android-automotive;${HH_ARCH}"
-export HH_CMDLINE_TOOLS_BUILD="16111833"
+# Newest build published for both macOS and Linux; 16111833 is Linux-only.
+export HH_CMDLINE_TOOLS_BUILD="15641748"
 export HH_AVD_NAME="headhunt_car"
 
 export ANDROID_HOME="${ANDROID_HOME:-$HOME/android-sdk}"

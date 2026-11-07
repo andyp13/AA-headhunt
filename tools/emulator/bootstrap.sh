@@ -8,11 +8,18 @@ source "$(dirname "$0")/env.sh"
 echo "SDK root: $ANDROID_HOME"
 mkdir -p "$ANDROID_HOME/cmdline-tools" "$ANDROID_AVD_HOME"
 
-if [ ! -x "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
-  echo "Installing command-line tools build $HH_CMDLINE_TOOLS_BUILD"
+# The tools ship a native binary, so the package must match the host OS. A
+# previous install for the wrong OS fails the --version probe and is replaced.
+case "$(uname -s)" in
+  Darwin) ct_os="mac" ;;
+  Linux)  ct_os="linux" ;;
+  *) echo "unsupported host $(uname -s); use WSL2 on Windows" >&2; exit 1 ;;
+esac
+if ! "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --version >/dev/null 2>&1; then
+  echo "Installing command-line tools build $HH_CMDLINE_TOOLS_BUILD for $ct_os"
   tmp="$(mktemp -d)"
   curl -sSL -o "$tmp/ct.zip" \
-    "https://dl.google.com/android/repository/commandlinetools-linux-${HH_CMDLINE_TOOLS_BUILD}_latest.zip"
+    "https://dl.google.com/android/repository/commandlinetools-${ct_os}-${HH_CMDLINE_TOOLS_BUILD}_latest.zip"
   python3 -I -c "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extractall(sys.argv[2])" "$tmp/ct.zip" "$tmp"
   rm -rf "$ANDROID_HOME/cmdline-tools/latest"
   mv "$tmp/cmdline-tools" "$ANDROID_HOME/cmdline-tools/latest"

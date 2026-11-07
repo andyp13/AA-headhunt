@@ -6,7 +6,8 @@ Status: Accepted. 2026-10-25.
 
 - Platform: AOSP Android Automotive, Android 15. We pin the emulator image
   `system-images;android-35-ext15;android-automotive;x86_64`, `compileSdk 35`,
-  and command-line tools build 16111833. These live in `tools/emulator/env.sh`
+  and command-line tools build 15641748 (the newest published for both macOS
+  and Linux). These live in `tools/emulator/env.sh`
   and `gradle/libs.versions.toml` and are bumped together.
 - No Google Automotive Services. Bare AOSP. Maps, voice and a store are
   app-layer problems we solve later with third-party or open components.
