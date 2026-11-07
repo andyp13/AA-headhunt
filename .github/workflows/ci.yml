@@ -27,6 +27,9 @@ jobs:
       - name: Build, unit test, lint
         run: ./gradlew build --no-daemon --stacktrace
 
+      - name: Bridge tools unit tests
+        run: python3 -m unittest discover -s tools/bridge -p 'test_*.py' -v
+
       - name: Shell script lint
         run: |
           sudo apt-get install -y shellcheck >/dev/null

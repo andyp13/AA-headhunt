@@ -17,3 +17,7 @@ tools/keys/*.jks
 
 # Emulator state
 tools/emulator/.avd/
+
+# Firmware build output
+firmware/*/build/
+__pycache__/
