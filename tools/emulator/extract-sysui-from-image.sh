@@ -11,7 +11,7 @@ set -euo pipefail
 # shellcheck source=tools/emulator/env.sh
 source "$(dirname "$0")/env.sh"
 root="$(cd "$(dirname "$0")/../.." && pwd)"
-img="$ANDROID_HOME/system-images/${HH_API}/android-automotive/x86_64/system.img"
+img="$ANDROID_HOME/system-images/${HH_API}/android-automotive/${HH_ARCH}/system.img"
 out="$root/build/sysui-res"
 aapt2="$ANDROID_HOME/build-tools/35.0.0/aapt2"
 mkdir -p "$out"
