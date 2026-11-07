@@ -50,7 +50,7 @@ Each ends with something that boots.
 - [x] Platform-key signing path
 - [x] CI building, testing and linting on every push
 - [ ] Verified on a machine with the emulator: launcher installs, speed injection shows on screen
-- [ ] ADR 0003 compute board: pick the development board and order it
+- [x] ADR 0003 compute board: Raspberry Pi 5 (decided 2026-11-07)
 
 ## M1 breakdown
 
@@ -72,6 +72,20 @@ M1b, system UI overlays:
 - [x] Overlay install script for the emulator
 - [ ] Verified on the emulator: overlay enables, bars take the palette, temperature controls gone
 - [ ] Layout override: drop the HVAC button, point Home and Apps at our launcher (see `platform/overlays/car-systemui/RESOURCES.md`)
+
+
+## M2 breakdown (bench rig on the Pi 5)
+
+- [x] ADR 0003 accepted: Pi 5, built from raspberry-vanilla `android-15.0`
+- [x] `tools/rpi5/`: build-host setup, pinned sync, Headhunt config patch, build, flash
+- [x] `platform/rpi5/README.md`: bring-up guide
+- [x] `hardware/bench-rig.md`: parts list and wiring for the bench
+- [ ] AOSP synced and `aosp_rpi5_car` built on a real build host
+- [ ] Pi 5 boots AAOS on the bench display; adb over USB works
+- [ ] Launcher and overlay installed on the Pi with the existing emulator scripts
+- [ ] I2S DAC line-out confirmed with a tone
+- [ ] Bridge dev board enumerates as USB serial on the Pi
+- [ ] First real VehicleProperty from the bridge (the VHAL work starts here)
 
 ## Risks
 

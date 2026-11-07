@@ -19,6 +19,9 @@ libs/design-system/   Compose tokens, theme and driving-safe components.
 libs/car-kit/         The only way apps read vehicle data. Real + fake sources.
 tools/emulator/       Bootstrap, run and feed the AAOS emulator.
 tools/keys/           Platform signing for the emulator (keys are gitignored).
+tools/rpi5/           Build host setup, pinned AOSP sync, build and flash for the Pi 5.
+platform/rpi5/        Pi 5 bring-up guide.
+platform/overlays/    Resource overlays that restyle stock system apps.
 platform/vhal/        Vehicle HAL that bridges the car to Android.   (M2+)
 firmware/bridge/      Microcontroller: discrete inputs, OBD, power.   (M2+)
 hardware/             Schematics, harness pinouts, enclosure.         (M2+)
