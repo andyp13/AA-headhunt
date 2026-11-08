@@ -11,6 +11,8 @@
 set -euo pipefail
 # shellcheck source=tools/emulator/env.sh
 source "$(dirname "$0")/env.sh"
+# shellcheck source=tools/emulator/lib.sh
+source "$(dirname "$0")/lib.sh"
 
 PERF_VEHICLE_SPEED=291504647   # 0x11600207
 ENGINE_RPM=291504901           # 0x11600305
@@ -19,6 +21,8 @@ FUEL_LEVEL=291504903           # 0x11600307
 GEAR_SELECTION=289408000       # 0x11400400
 NIGHT_MODE=287310855           # 0x11200407
 INFO_FUEL_CAPACITY=291504388   # 0x11600104
+
+require_device
 
 inject() { adb shell cmd car_service inject-vhal-event "$1" "$2"; }
 
