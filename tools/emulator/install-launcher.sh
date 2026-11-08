@@ -3,6 +3,8 @@
 set -euo pipefail
 # shellcheck source=tools/emulator/env.sh
 source "$(dirname "$0")/env.sh"
+# shellcheck source=tools/emulator/lib.sh
+source "$(dirname "$0")/lib.sh"
 root="$(cd "$(dirname "$0")/../.." && pwd)"
 
 if [ ! -f "$root/tools/keys/platform.p12" ]; then
@@ -11,8 +13,10 @@ if [ ! -f "$root/tools/keys/platform.p12" ]; then
   echo "         Run tools/keys/make-platform-keystore.sh first." >&2
 fi
 
-adb wait-for-device
+require_device
+echo "== building and installing the launcher (first Gradle run can take a few minutes)"
 "$root/gradlew" -p "$root" :apps:launcher:installDebug
+echo "== making it the home app"
 
 # Point the HOME role at us. The stock CarLauncher stays installed as a fallback.
 adb shell cmd package set-home-activity dev.headhunt.launcher/.HomeActivity

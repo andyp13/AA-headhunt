@@ -4,9 +4,11 @@
 set -euo pipefail
 # shellcheck source=tools/emulator/env.sh
 source "$(dirname "$0")/env.sh"
+# shellcheck source=tools/emulator/lib.sh
+source "$(dirname "$0")/lib.sh"
 root="$(cd "$(dirname "$0")/../.." && pwd)"
 
-adb wait-for-device
+require_device
 "$root/gradlew" -p "$root" :platform:overlays:car-systemui:assembleDebug
 
 adb root >/dev/null
@@ -23,6 +25,10 @@ adb shell "chmod 644 /product/overlay/HeadhuntSystemUI.apk"
 # A freshly pushed overlay is only discovered on boot.
 adb reboot
 adb wait-for-device
-until [ "$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ]; do sleep 2; done
+echo "== waiting for the emulator to boot"
+for _ in $(seq 1 90); do
+  [ "$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ] && break
+  sleep 2
+done
 adb shell cmd overlay enable --user 0 dev.headhunt.overlay.systemui
 adb shell cmd overlay list | grep -i headhunt

@@ -5,11 +5,13 @@
 set -euo pipefail
 # shellcheck source=tools/emulator/env.sh
 source "$(dirname "$0")/env.sh"
+# shellcheck source=tools/emulator/lib.sh
+source "$(dirname "$0")/lib.sh"
 root="$(cd "$(dirname "$0")/../.." && pwd)"
 out="$root/build/sysui-res"
 mkdir -p "$out"
 
-adb wait-for-device
+require_device
 path=$(adb shell pm path com.android.systemui | sed -n 's/^package://p' | head -1)
 [ -n "$path" ] || { echo "com.android.systemui not found on device" >&2; exit 1; }
 adb pull "$path" "$out/CarSystemUI.apk" >/dev/null
