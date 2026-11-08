@@ -14,6 +14,7 @@ if [ ! -f "$root/tools/keys/platform.p12" ]; then
 fi
 
 require_device
+pick_java
 echo "== building and installing the launcher (first Gradle run can take a few minutes)"
 "$root/gradlew" -p "$root" :apps:launcher:installDebug
 echo "== making it the home app"

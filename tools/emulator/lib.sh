@@ -20,3 +20,19 @@ require_device() {
     sleep 1; waited=$((waited + 1))
   done
 }
+
+# Gradle 8.14 runs on Java 17..24. Gradle will provision its own JDK 21 via
+# gradle/gradle-daemon-jvm.properties, but the wrapper's client JVM is still
+# whatever `java` is. On macOS, prefer an installed 17..24 JDK for that too.
+pick_java() {
+  [ -n "${JAVA_HOME:-}" ] && return 0
+  [ "$(uname -s)" = "Darwin" ] || return 0
+  local v
+  for v in 21 17 24 23 22 20 19 18; do
+    if JAVA_HOME="$(/usr/libexec/java_home -v "$v" 2>/dev/null)"; then
+      export JAVA_HOME; echo "== using Java $v at $JAVA_HOME"; return 0
+    fi
+  done
+  echo "warning: no Java 17..24 found; Gradle will try to download JDK 21 itself." >&2
+  echo "         If that fails: brew install --cask temurin@21" >&2
+}

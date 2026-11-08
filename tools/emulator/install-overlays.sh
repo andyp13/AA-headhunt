@@ -9,6 +9,7 @@ source "$(dirname "$0")/lib.sh"
 root="$(cd "$(dirname "$0")/../.." && pwd)"
 
 require_device
+pick_java
 "$root/gradlew" -p "$root" :platform:overlays:car-systemui:assembleDebug
 
 adb root >/dev/null

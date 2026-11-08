@@ -31,7 +31,8 @@ docs/                 Plan and architecture decision records.
 
 ## Quick start (M0)
 
-Requirements: JDK 17 or newer, ~6 GB disk, bash, curl, python3, openssl, and a
+Requirements: a JDK (Gradle runs itself on Java 21, downloading one if the
+host's Java is outside 17..24; Homebrew's OpenJDK 27 is), ~6 GB disk, bash, curl, python3, openssl, and a
 machine that can run the Android emulator with hardware acceleration (Linux
 with KVM, macOS Intel or Apple Silicon; on Windows use WSL2 or Android Studio's
 Device Manager for the AVD and run the Gradle and adb steps from PowerShell).
