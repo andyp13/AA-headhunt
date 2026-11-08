@@ -3,4 +3,11 @@
     <!-- An RRO has no activities, icon or launcher entry by design. -->
     <issue id="MissingApplicationIcon" severity="ignore" />
     <issue id="UnusedResources" severity="ignore" />
+    <!-- Layouts here are inflated by CarSystemUI, whose classes are not on our classpath. -->
+    <issue id="MissingClass" severity="ignore" />
+    <!-- The bottom bar mirrors the stock layout's structure on purpose. -->
+    <issue id="UselessParent" severity="ignore" />
+    <issue id="Overdraw" severity="ignore" />
+    <!-- Icon paths are copied verbatim from CarSystemUI's vectors. -->
+    <issue id="VectorPath" severity="ignore" />
 </lint>

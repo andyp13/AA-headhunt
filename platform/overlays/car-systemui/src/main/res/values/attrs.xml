@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  CarSystemBarButton's custom attributes, declared with the same names and
+  formats as in CarSystemUI so they map onto the target's attrs. Formats
+  were read from the android-35 resource table (RESOURCES.md).
+-->
+<resources>
+    <attr name="icon" format="reference" />
+    <attr name="intent" format="string" />
+    <attr name="longIntent" format="string" />
+    <attr name="componentNames" format="string" />
+    <attr name="packages" format="string" />
+    <attr name="highlightWhenSelected" format="boolean" />
+    <attr name="clearBackStack" format="boolean" />
+    <attr name="unselectedAlpha" format="float" />
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Overrides: the bar's Apps button opens our launcher's grid instead of CarLauncher's. -->
+    <string name="config_appGridComponentName" translatable="false">dev.headhunt.launcher/.HomeActivity</string>
+    <string name="system_bar_app_drawer_intent" translatable="false">intent:#Intent;action=android.intent.action.MAIN;component=dev.headhunt.launcher/.HomeActivity;S.dev.headhunt.launcher.DESTINATION=APPS;launchFlags=0x14000000;end</string>
+
+    <!-- Our own content descriptions for the buttons in our layout. -->
+    <string name="hh_bar_home">Home</string>
+    <string name="hh_bar_phone">Phone</string>
+    <string name="hh_bar_apps">Apps</string>
+    <string name="hh_bar_notifications">Notifications</string>
+    <string name="hh_bar_assistant">Assistant</string>
+</resources>

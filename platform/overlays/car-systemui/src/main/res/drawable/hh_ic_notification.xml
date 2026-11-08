@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reconstructed from CarSystemUI's car_ic_notification (android-35 image). White fill; the button tints it. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="44dp"
+    android:height="44dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M29.8183 28.1819V18.3637C29.8183 13.34 27.151 9.13459 22.4546 8.02186V6.90914C22.4546 5.55095 21.3583 4.45459 20.0001 4.45459C18.6419 4.45459 17.5455 5.55095 17.5455 6.90914V8.02186C12.8655 9.13459 10.1819 13.3237 10.1819 18.3637V28.1819H6.90918V31.4546H23.2728H23.8946H33.091V28.1819H29.8183ZM26.5452 28.1816H13.4543V18.3634C13.4543 14.3052 15.9252 10.9998 19.9997 10.9998C24.0743 10.9998 26.5452 14.3052 26.5452 18.3634V28.1816ZM23.2728 33.0909C23.2728 34.8909 21.8001 36.3636 20.0001 36.3636C18.2001 36.3636 16.7273 34.8909 16.7273 33.0909H23.2728Z" />
+</vector>

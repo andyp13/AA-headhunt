@@ -14,4 +14,8 @@
     <dimen name="hvac_temperature_button_padding">0dp</dimen>
     <dimen name="hvac_temperature_text_padding">0dp</dimen>
     <dimen name="hvac_temperature_text_size">0sp</dimen>
+
+    <!-- Referenced by our bottom bar layout; same values as stock. -->
+    <dimen name="system_bar_button_group_padding">64dp</dimen>
+    <dimen name="car_keyline_1">24dp</dimen>
 </resources>

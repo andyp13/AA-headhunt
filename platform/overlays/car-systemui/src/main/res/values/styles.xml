@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copy of CarSystemUI's style/SystemBarButton (android-35) with our background drawable. -->
+<resources>
+    <style name="HhSystemBarButton">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/hh_nav_button_background</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="unselectedAlpha">1</item>
+    </style>
+</resources>
